@@ -1,6 +1,6 @@
 package br.com.alura.screenmatch.model;
 
-public class Movie {
+public class Titles {
 
     private String name = "";
     private int releaseYear = 0;
