@@ -9,6 +9,11 @@ public class Titles {
     private int totalRatings = 0;
     private int durationInMinutes = 0;
 
+    public Titles(String name, int releaseYear) {
+        this.name = name;
+        this.releaseYear = releaseYear;
+    }
+
     public String getName() {
         return name;
     }

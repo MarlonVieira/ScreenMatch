@@ -3,6 +3,14 @@ package br.com.alura.screenmatch.calculate;
 public class Filter {
     private String recomendation;
 
+    public String getRecomendation() {
+        return recomendation;
+    }
+
+    public void setRecomendation(String recomendation) {
+        this.recomendation = recomendation;
+    }
+
     public void filtering(Classifiable classifiable) {
         if (classifiable.getClassification() >= 4) {
             System.out.println("This is among the recommended ones at the moment.");
