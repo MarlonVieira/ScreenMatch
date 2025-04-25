@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.main;
+
 import br.com.alura.screenmatch.calculate.CalculateTime;
 import br.com.alura.screenmatch.calculate.Filter;
 import br.com.alura.screenmatch.model.Episode;
@@ -66,7 +68,5 @@ public class Main {
         System.out.println("Fist movie: " + moviesList.get(0).getName());
         System.out.println(moviesList.toString());
         System.out.println(moviesList.get(0).toString());
-
-
     }
 }

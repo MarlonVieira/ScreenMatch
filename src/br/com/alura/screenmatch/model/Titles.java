@@ -62,7 +62,6 @@ public class Titles {
         sumRatings += evaluation;
         totalRatings++;
     }
-
     public double averageRating() {
         return sumRatings / getTotalRatings();
     }

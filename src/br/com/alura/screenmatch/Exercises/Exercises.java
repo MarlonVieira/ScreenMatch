@@ -1,3 +1,5 @@
+package br.com.alura.screenmatch.Exercises;
+
 public class Exercises {
     public class BankAccount {
         private int numberAccount;
