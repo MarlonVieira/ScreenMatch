@@ -1,6 +1,6 @@
 package br.com.alura.screenmatch.Exercises;
 
-public class Exercises2 {
+public class Exercise2 {
 
     public static void main(String[] args) {
         Dog dog = new Dog();

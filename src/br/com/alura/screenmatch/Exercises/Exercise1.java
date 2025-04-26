@@ -1,6 +1,6 @@
 package br.com.alura.screenmatch.Exercises;
 
-public class Exercises {
+public class Exercise1 {
     public class BankAccount {
         private int numberAccount;
         private double balance;
