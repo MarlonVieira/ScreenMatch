@@ -5,6 +5,8 @@ import br.com.alura.screenmatch.model.Series;
 import br.com.alura.screenmatch.model.Titles;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainWithList {
     public static void main(String[] args) {
@@ -37,5 +39,20 @@ public class MainWithList {
                 System.out.println("Classification: " + movie.getClassification());
             }
         }
+
+        ArrayList<String> searchForArtist = new ArrayList<>();
+        searchForArtist.add("Adam Sandler");
+        searchForArtist.add("Marlon Vieira");
+        searchForArtist.add("Roseli Basse");
+        searchForArtist.add("Euclides Olvieira");
+
+        System.out.println(searchForArtist);
+        Collections.sort(searchForArtist);
+        System.out.println("Sorted: " + searchForArtist);
+
+        Collections.sort(list);
+        System.out.println("Sorted titles: " + list);
+        list.sort(Comparator.comparing(Titles::getReleaseYear));
+        System.out.println("Sorted titles by release year: " + list);
     }
 }
