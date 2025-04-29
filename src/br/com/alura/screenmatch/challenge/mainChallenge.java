@@ -25,7 +25,41 @@ public class mainChallenge {
 
         Card card = CardFactory.createCard(type, number, holderName, flag, value);
 
+        int stay = 1;
+
+        while (stay == 1) { 
+            System.out.printf("Enter the product: ");
+            String product = scan.next();
+
+            System.out.printf("Enter the product value: ");
+            double valueProduct = scan.nextDouble();
+
+            Sales sale = new Sales(product, valueProduct);
+            boolean paySale = card.paySale(sale);
+
+            if (paySale) {
+                System.out.println("\nPurchases made!\n");
+                System.out.printf("Enter 0 to exit or 1 to continue: ");
+                stay = scan.nextInt();
+            } else if (card.checkBalance() > 0) {
+                System.out.println("\nPurchase denied, balance available: " + card.checkBalance() + "\n");
+            } else {
+                System.out.println("\nPurchase denied, insufficient balance!\n");
+                stay = 0;
+            }
+        }
+
         card.showAccountDetails();
+
+        System.out.println("***********************************************");
+        System.out.println("Purchases made:");
+        for (Sales c : card.getSales()) {
+            System.out.println(c.getProduct() + " - " +c.getValue());
+        }
+        System.out.println("***********************************************");
+
+        System.out.println("\nCard balance: "  + card.checkBalance());
+
         scan.close();
     }
 }
