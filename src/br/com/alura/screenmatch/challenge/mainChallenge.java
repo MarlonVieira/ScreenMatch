@@ -8,12 +8,16 @@ public class mainChallenge {
 
         System.out.printf("Enter card type(C-Credit or D-Debit): ");
         String type = scan.next();
+        
         System.out.printf("Enter the account number: ");
         String number = scan.next();
+        
         System.out.printf("Enter the holder account name: ");
         String holderName = scan.next();
+        
         System.out.printf("Enter the flag: ");
         String flag = scan.next();
+
         double value = 0.0;
         if ("C".equalsIgnoreCase(type)) {
             System.out.print("Enter the limit: ");
@@ -28,7 +32,7 @@ public class mainChallenge {
         int stay = 1;
 
         while (stay == 1) { 
-            System.out.printf("Enter the product: ");
+            System.out.printf("\nEnter the product: ");
             String product = scan.next();
 
             System.out.printf("Enter the product value: ");
@@ -38,20 +42,25 @@ public class mainChallenge {
             boolean paySale = card.paySale(sale);
 
             if (paySale) {
-                System.out.println("\nPurchases made!\n");
-                System.out.printf("Enter 0 to exit or 1 to continue: ");
-                stay = scan.nextInt();
+                if (card.checkBalance() == 0) {
+                    System.out.println("\nPurchase completed, no more balance for purchases!");
+                    stay = 0;
+                } else {
+                    System.out.println("\nPurchases made!\n");
+                    System.out.printf("Enter 0 to exit or 1 to continue: ");
+                    stay = scan.nextInt();
+                }
             } else if (card.checkBalance() > 0) {
-                System.out.println("\nPurchase denied, balance available: " + card.checkBalance() + "\n");
+                System.out.println("\nPurchase denied, balance available: " + card.checkBalance());
             } else {
-                System.out.println("\nPurchase denied, insufficient balance!\n");
+                System.out.println("\nPurchase denied, insufficient balance!");
                 stay = 0;
             }
         }
 
         card.showAccountDetails();
 
-        System.out.println("***********************************************");
+        System.out.println("\n***********************************************");
         System.out.println("Purchases made:");
         for (Sales c : card.getSales()) {
             System.out.println(c.getProduct() + " - " +c.getValue());
