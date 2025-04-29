@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Debit implements Card{
-    private String number;
-    private String nameHolder;
+    private String number = "";
+    private String nameHolder = "";
     private double balance;
-    private String flag;
-    private List<Sales> sales;
+    private String flag = "";
+    private List<Sales> sales = null;
 
     public Debit(String number, String nameHolder, String flag, double balance) {
         this.number = number;

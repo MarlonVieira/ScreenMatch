@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Credit implements Card{
-    private String number;
-    private String nameHolder;
-    private double limit;
+    private String number = "";
+    private String nameHolder = "";
+    private double limit = 0;
     private double balanceUsed;
-    private String flag;
-    private List<Sales> sales;
+    private String flag = "";
+    private List<Sales> sales = null;
 
     public Credit(String number, String nameHolder, double limit, String flag) {
         this.number = number;

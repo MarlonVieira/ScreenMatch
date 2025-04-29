@@ -1,7 +1,5 @@
 package br.com.alura.screenmatch.Exercises;
 
-import br.com.alura.screenmatch.model.Movies;
-
 import java.util.ArrayList;
 
 public class Exercise5 {
