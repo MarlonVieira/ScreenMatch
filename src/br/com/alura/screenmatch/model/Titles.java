@@ -1,5 +1,6 @@
 package br.com.alura.screenmatch.model;
 
+import br.com.alura.screenmatch.Exceptions.yearException;
 import com.google.gson.annotations.SerializedName;
 
 public class Titles implements Comparable<Titles> {
@@ -17,6 +18,9 @@ public class Titles implements Comparable<Titles> {
 
     public Titles(TitlesOMDB titlesOMDB) {
         this.name = titlesOMDB.title();
+        if (titlesOMDB.year().length() != 4) {
+            throw new yearException("Unable to convert year!");
+        }
         this.releaseYear = Integer.valueOf(titlesOMDB.year());
         this.durationInMinutes = Integer.valueOf(titlesOMDB.runtime().substring(0,2));
     }
@@ -80,8 +84,8 @@ public class Titles implements Comparable<Titles> {
 
     @Override
     public String toString() {
-        return "Name: " + name +
+        return "(Name: " + name +
                "\nYear: " + releaseYear +
-               "\nDuration: " + durationInMinutes;
+               "\nDuration: " + durationInMinutes + ")\n";
     }
 }
