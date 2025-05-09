@@ -16,10 +16,6 @@ public class MainChallengeCEP {
         Scanner scan = new Scanner(System.in);
         String cep = "";
         SearchCEP searchCEP = new SearchCEP();
-        Gson gson = new GsonBuilder()
-                        .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                        .setPrettyPrinting()
-                        .create();
 
             try {
                 do {
@@ -28,14 +24,8 @@ public class MainChallengeCEP {
                 } while (cep.length() != 8);
 
                 Address newAddress = searchCEP.searchAddress(cep);
-
-                System.out.println(newAddress);
-
-//                FileWriter writer = new FileWriter("CEP.json");
-//                writer.write(gson.toJson(response.body()));
-//                writer.close();
-//
-//                System.out.println(response.body());
+                FileGeneratorCEP generatorFile = new FileGeneratorCEP();
+                generatorFile.saveJson(newAddress);
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             } catch (InterruptedException e) {
