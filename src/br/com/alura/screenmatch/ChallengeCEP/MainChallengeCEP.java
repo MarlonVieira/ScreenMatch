@@ -16,10 +16,6 @@ public class MainChallengeCEP {
         Scanner scan = new Scanner(System.in);
         String cep = "";
         SearchCEP searchCEP = new SearchCEP();
-        Gson gson = new GsonBuilder()
-                        .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                        .setPrettyPrinting()
-                        .create();
 
             try {
                 do {
@@ -27,8 +23,7 @@ public class MainChallengeCEP {
                     cep = scan.nextLine();
                 } while (cep.length() != 8);
 
-                Address newAddress = Address.fromJson(searchCEP.searchAddress(cep));
-                System.out.println(newAddress);
+                Address newAddress = searchCEP.searchAddress(cep);
                 FileGeneratorCEP generatorFile = new FileGeneratorCEP();
                 generatorFile.saveJson(newAddress);
             } catch (RuntimeException e) {
