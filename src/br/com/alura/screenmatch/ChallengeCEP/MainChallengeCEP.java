@@ -27,15 +27,10 @@ public class MainChallengeCEP {
                     cep = scan.nextLine();
                 } while (cep.length() != 8);
 
-                Address newAddress = searchCEP.searchAddress(cep);
-
+                Address newAddress = Address.fromJson(searchCEP.searchAddress(cep));
                 System.out.println(newAddress);
-
-//                FileWriter writer = new FileWriter("CEP.json");
-//                writer.write(gson.toJson(response.body()));
-//                writer.close();
-//
-//                System.out.println(response.body());
+                FileGeneratorCEP generatorFile = new FileGeneratorCEP();
+                generatorFile.saveJson(newAddress);
             } catch (RuntimeException e) {
                 System.out.println(e.getMessage());
             } catch (InterruptedException e) {

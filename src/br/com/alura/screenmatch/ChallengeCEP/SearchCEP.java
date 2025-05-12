@@ -8,6 +8,9 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 public class SearchCEP {
+    public SearchCEP() {
+    }
+
     public Address searchAddress(String cep) throws IOException, InterruptedException {
         URI address = URI.create("https://viacep.com.br/ws/" + cep + "/json/");
         HttpRequest request = HttpRequest.newBuilder()
